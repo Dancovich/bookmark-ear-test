@@ -35,6 +35,13 @@
 			<type>war</type>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>br.gov.frameworkdemoiselle.sample</groupId>
+			<artifactId>bookmark2</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -52,6 +59,12 @@
 							<artifactId>bookmark</artifactId>
 							<contextRoot>bookmark</contextRoot>
 							<moduleId>bookmark-war</moduleId>
+						</webModule>
+						<webModule>
+							<groupId>br.gov.frameworkdemoiselle.sample</groupId>
+							<artifactId>bookmark2</artifactId>
+							<contextRoot>bookmark2</contextRoot>
+							<moduleId>bookmark-war2</moduleId>
 						</webModule>
 					</modules>
 				</configuration>

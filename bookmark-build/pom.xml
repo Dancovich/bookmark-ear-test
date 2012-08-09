@@ -11,6 +11,7 @@
 
 	<modules>
 		<module>bookmark</module>
+		<module>bookmark2</module>
 		<module>bookmark_ear</module>
 		<module>bookmark-parent</module>
 	</modules>

@@ -1,21 +1,18 @@
 package br.gov.frameworkdemoiselle.sample.business;
 
-import static br.gov.frameworkdemoiselle.annotation.Startup.MAX_PRIORITY;
-import static br.gov.frameworkdemoiselle.annotation.Startup.MIN_PRIORITY;
 import br.gov.frameworkdemoiselle.annotation.Shutdown;
 import br.gov.frameworkdemoiselle.annotation.Startup;
+import br.gov.frameworkdemoiselle.sample.domain.Bookmark;
+import br.gov.frameworkdemoiselle.sample.persistence.BookmarkDAO;
 import br.gov.frameworkdemoiselle.stereotype.BusinessController;
 import br.gov.frameworkdemoiselle.template.DelegateCrud;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
 
-import br.gov.frameworkdemoiselle.sample.domain.Bookmark;
-import br.gov.frameworkdemoiselle.sample.persistence.BookmarkDAO;
-
 @BusinessController
 public class BookmarkBC extends DelegateCrud<Bookmark, Long, BookmarkDAO> {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Startup(priority = 2)
 	@Transactional
 	public void load() {
@@ -32,25 +29,25 @@ public class BookmarkBC extends DelegateCrud<Bookmark, Long, BookmarkDAO> {
 			insert(new Bookmark("Downloads", "http://download.frameworkdemoiselle.gov.br"));
 		}
 	}
-	
+
 	@Startup(priority = 1)
 	public void initServer() {
 		System.out.println("********************** INICIANDO O SERVIDOR 1 ********************** ");
 	}
-	
+
 	@Startup(priority = 3)
 	public void executeGrant() {
 		System.out.println("********************** HABILITANDO AS PERMISSÕES 1********************** ");
 	}
-	
+
 	@Shutdown(priority = 1)
 	public void removeGrant() {
 		System.out.println("********************** DESABILITANDO AS PERMISSÕES 1 ********************** ");
 	}
-	
+
 	@Shutdown(priority = 2)
 	public void stopServer() {
 		System.out.println("********************** FINALIZANDO O SERVIDOR 1 ********************** ");
-	}	
-	
+	}
+
 }

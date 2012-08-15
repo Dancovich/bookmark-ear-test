@@ -10,17 +10,8 @@
 	</listener>
  	-->
 
-	<servlet>
-		<servlet-name>Faces Servlet</servlet-name>
-		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
-	</servlet-mapping>
-	
+	<!--
+	-->
 	<listener>
 		<listener-class>br.gov.frameworkdemoiselle.util.ServletListener</listener-class>
 	</listener>
@@ -34,6 +25,17 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	
 	<security-constraint>
 		<display-name>Restrict raw XHTML Documents</display-name>
 		<web-resource-collection>
